@@ -91,7 +91,7 @@
 
 			
 		<div class="tab-pane fade" id="Gallery"> 
-		
+		{{pulist}}
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
 				  <ol class="carousel-indicators">
@@ -179,8 +179,6 @@
     
     
     <script  type="text/javascript">
-
-    
     function myMap() {
     var map;
     var bounds = new google.maps.LatLngBounds();
@@ -189,16 +187,10 @@
     };
                     
     // Display a map on the page
-    map = new google.maps.Map(document.getElementById("hmap"), mapOptions);
-   
-     
-    // Multiple Markers7
- 
-     
-    var markers = [
-    ['Londo, London', 51.507474,-0.179562],
-    ['Palace of Westminster, London', 51.499633,-0.124755]
-    ];
+    map = new google.maps.Map(document.getElementById("hmap"), mapOptions);  
+    // Multiple Markers 
+    //make a call of points 
+    var markers = {{plist|safe}}
                     
     // Info Window Content
     var infoWindowContent = [

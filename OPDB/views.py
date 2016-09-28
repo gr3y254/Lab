@@ -10,14 +10,28 @@ def index(request):
     #This is osiligi langing page, displays a summary of pumps worked on
     pumps= Pump.objects.count()
     
-    tas=[['Londo, London', 51.507474,-0.179562],['Palace of Westminster, London', 51.499633,-0.124755]]
+    
+   
+   
+    locprov = Pump.objects.exclude(lon='0.0')
+    pumpnlist=[]
+    
+    
+    for p in locprov:
+        pr=[]
+        pr.append(p.pump_name)
+        pr.append(p.lat)
+        pr.append(p.lon)
+        
+        pumpnlist.append(pr)
+        
+    
+        
+        
+#     tas=[['Londo, London', 51.507474,-0.179562],['Palace of Westminster, London', 51.499633,-0.124755]]
+    tas=pumpnlist
     tags= json.dumps(tas)
    
-
-    
-    
-    
-    
     
     report= pumps
     working_pumps= Pump.objects.filter(pump_status='Green')
@@ -57,7 +71,8 @@ def index(request):
                'pc':pc,
                'nwp':nwp,
                'sp':sp,
-               'plist':tags
+               'plist':tags,
+               'pulist':pumpnlist
                
                
                }

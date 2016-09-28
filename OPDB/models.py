@@ -12,8 +12,9 @@ class Pump(models.Model):
                         ('Western','Victor'))
     rcp=models.CharField(max_length=7,choices=regions_rcp_chices,default='Emmanuel')
     
-    lon = models.FloatField(default='0.0')
-    lat= models.FloatField(default='0.0')
+    lat= models.FloatField(default='0.0N')
+    lon = models.FloatField(default='0.0E')
+    
     pump_name =  models.CharField(max_length=50,primary_key=True)
     pump_type =  models.CharField(max_length=50)
     pump_depth=  models.IntegerField(default='0')
