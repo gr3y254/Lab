@@ -38,7 +38,7 @@ class Photo(models.Model):
     pump = models.ForeignKey(Pump)
     photo_name=models.CharField(max_length=50,default='ImageName')
     photo_decription=models.TextField(default='Briefly decribe what is in the photo')
-    photo= models.ImageField(upload_to='media')
+    photo= models.ImageField(upload_to='media/%Y/%m/%d')
 
     def __str__(self):
         return self.photo_name
